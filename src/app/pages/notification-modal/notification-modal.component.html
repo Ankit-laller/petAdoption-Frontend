@@ -1,0 +1,9 @@
+<div class="list-group">
+ 
+  <button *ngFor="let request of adoptionrequests" type="button" (click)="navigate()"
+  class="list-group-item list-group-item-action d-grid gap-3 d-flex flex-direction-row align-items-center">
+    <img src="./../../../assets/dog-imag.jpg" alt="">
+    <span >{{request.senderName}} sent adoption request for {{request.petName}}</span>
+  </button>
+
+</div>

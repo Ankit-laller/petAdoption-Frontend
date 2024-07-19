@@ -1,0 +1,55 @@
+<div class="main">
+    <div class="card">
+      <form [formGroup]="user" class="row px-md-5 needs-validation">
+        <h2 class="d-flex justify-content-center">Welcome</h2>
+        <span class="d-flex justify-content-center mb-2">Register your account</span>
+        <div class="mb-1">
+            <label for="name-input" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name-input" placeholder="name" required formControlName="name" >
+            <div class="invalid-feedback">
+              Please enter name
+            </div>
+          </div>
+          
+        <div class="mb-1">
+            
+          <label for="email-input" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email-input" placeholder="name@example.com" required formControlName="email" >
+          <div class="invalid-feedback">
+            Please enter email
+          </div>
+        </div>
+        <div class="mb-1">
+            
+            <label for="mobile-input" class="form-label">Mobile number</label>
+            <input type="text" class="form-control" id="mobile-input" required formControlName="mobileNumber">
+            <div class="invalid-feedback">
+              Please enter number
+            </div>
+          </div>
+          <div class="mb-1">
+            <label for="city-input" class="form-label">City</label>
+            <input type="text" class="form-control" id="city-input"  required formControlName="city">
+            <div class="invalid-feedback">
+              Please enter city
+            </div>
+          </div>
+        <div class="mb-4">
+          <label for="password-input" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password-input" aria-describedby="inputGroupPrepend" required formControlName="password">
+          <div class="invalid-feedback">
+            Please enter password
+          </div>
+
+        </div>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-primary" type="submit" (click)="navigate()">Register</button>
+        </div>
+        <a class="d-flex justify-content-center mt-2 mb-2" routerLink="login" routerLinkActive="active-link">Already have an account?</a>
+
+      </form>
+    </div>
+    <div class="image">
+      <img class="rounded float-end" src="./../../../assets/primary-image.png" alt="">
+    </div>
+  </div>

@@ -1,0 +1,73 @@
+<div class="detailcard card col-md-12 d-flex flex-row justify-content-between p-3 gap-2 mt-2">
+  <div class="imagecard col-md-6">
+
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button *ngFor="let image of petData.petImages; let first=first;" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" [class.active]="first" aria-current="true" aria-label="Slide 1"></button>
+        <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+      </div>
+      <div class="carousel-inner">
+        <div *ngFor="let image of petData.petImages; let first=first;" class="carousel-item" [class.active]="first">
+          <img [src]="image.imageurl" class="d-block w-100" alt="..." style="object-fit: cover;height: 410px;">
+        </div>
+        
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </div>
+  <div class="detailscard col-md-6">
+   
+      <h3>{{petData.petName}}</h3>
+    <div class="col-md-4 d-flex flex-row justify-content-between">
+      <button  class="btn btn-primary">Contact us</button>
+      <button *ngIf="petData.isAdotped;else adopted" class="btn btn-info">Adopted</button>
+      <ng-template #adopted>
+        <button class="btn btn-info"  (click)="sendAdoptionRequest()">Adopt</button>
+      </ng-template>
+    </div>
+    <table class="table mb-1">
+      <tbody>
+        <tr>
+          <td>PetName</td>
+          <td>:{{petData.petName}}</td>
+        </tr>
+        
+        <tr>
+          <td>Age</td>
+          <td>:{{petData.petAge}} months</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>:{{petData.petGender}}</td>
+        </tr>
+        <tr>
+          <td>Vaccinated</td>
+          <td *ngIf="petData.vaccinated">:Yes</td>
+          <td *ngIf="!petData.vaccinated">:No</td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td>:{{petData.price}} Rs</td>
+        </tr>
+        <tr>
+          <td>Address</td>  
+          <td>:{{petData.address}}</td>
+        </tr>
+        
+        <tr>
+          <td>Description</td>
+          <td>:{{petData.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-list-view [title]="title" [petData]="particularPetTypeData"></app-list-view>

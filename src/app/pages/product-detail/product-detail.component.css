@@ -1,0 +1,202 @@
+/* .detailcard {
+    width: 100%;
+    height: 762px;
+    padding: 22px 20px;
+    gap: 34px;
+    border-radius: 20px;
+    border: 1px 0px 0px 0px;
+    background: #FDFDFD;
+    display: flex;
+    justify-content: row;
+    border: 1px solid #EBEEEF
+}
+
+.imagecard {
+    width: 560px;
+    height: 592px;
+
+}
+
+
+.prevnext{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: 285px;
+    padding: 0 10px;
+}
+
+.prev {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    gap: 10px;
+    border-radius: 20px;
+    background: #FFFFFF66;
+}
+.prev i{
+    position: relative;
+    font-size: 18px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-left: 0.8px;
+}
+
+.next{
+    width: 42px;
+    height: 42px;
+    gap: 10px;
+    border-radius: 20px;
+    background: #FFFFFF66;
+}
+.next i{
+    position: relative;
+    font-size: 18px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-left: 0.8px;
+}
+
+.imagelist {
+    margin: 10px 0;
+}
+
+.imagelist img {
+    width: 74px;
+    height: 74px;
+    gap: 0px;
+    border-radius: 6px;
+    border: 3px 0px 0px 0px;
+    border: 3px solid #F1D092;
+    margin-right: 5px;
+}
+
+.detailscard {
+    width: 517px;
+    height: 718px;
+    gap: 18px;
+    opacity: 0px;
+
+}
+
+.textdiv1 {
+    width: 302px;
+    height: 74px;
+    gap: 6px;
+    opacity: 0px;
+
+}
+
+.textdiv1 h1 {
+    font-family: SVN-Gilroy;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: left;
+    color: #00171F;
+    margin: 0;
+
+}
+
+.textdiv1 h4 {
+    font-family: SVN-Gilroy;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    color: #002A48;
+
+}
+
+.buttondiv {
+    width: 313px;
+    height: 44px;
+    gap: 18px;
+    opacity: 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactbtn {
+    width: 138px;
+    height: 34px;
+    gap: 10px;
+    border-radius: 57px;
+    opacity: 0px;
+    text-align: center;
+    background: #003459;
+    color: white;
+
+}
+
+.chatbtn {
+    width: 217px;
+    height: 34px;
+    gap: 10px;
+    border-radius: 57px;
+    border: 2px 0px 0px 0px;
+    border: 2px solid #002A48;
+    font-family: SVN-Gilroy;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+    color: #002A48;
+
+}
+
+.petdetails {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.petdetails tr {
+    width: 100%;
+    border-bottom: 1px solid #EBEEEF
+}
+
+.petdetails td {
+    width: 154px;
+    height: 26px;
+    padding: 4px 11px 2px 11px;
+    opacity: 0px;
+    font-family: SVN-Gilroy;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    color: #667479;
+}
+
+
+
+
+.petdetails td {
+    padding: 8px 16px;
+}
+
+.petdetails td:first-child {
+    width: 30px;
+    height: 26px;
+    padding: 4px 11px 2px 11px;
+    opacity: 0px;
+    font-family: SVN-Gilroy;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    color: #667479;
+} */
+
+img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center; 
+    border-radius: 6px;
+    border: 3px ;
+}

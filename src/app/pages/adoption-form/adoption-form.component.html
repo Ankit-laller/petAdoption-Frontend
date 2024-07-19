@@ -1,0 +1,114 @@
+<div class="mb-4 d-flex flex-column justify-content-center align-items-center">
+  <h5 class="mb-0 p-2">Adoption Form</h5>
+  <div class="card col-sm-9 p-3">
+    <form [formGroup]="adoptionForm" (ngSubmit)="onSubmit()">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="inputName" class="form-label">Pet Name</label>
+          <input type="text" class="form-control" id="inputName" formControlName="petName">
+          <div *ngIf="adoptionForm.get('petName').invalid && adoptionForm.get('petName').touched" class="text-danger">
+            Pet Name is required
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputAge" class="form-label">Pet Age</label>
+          <input type="number" class="form-control" id="inputAge" placeholder="months" formControlName="petAge">
+          <div *ngIf="adoptionForm.get('petAge').invalid && adoptionForm.get('petAge').touched" class="text-danger">
+            Pet Age is required
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputGender" class="form-label">Gender</label>
+          <select id="inputGender" class="form-select" formControlName="gender">
+            <option value="" disabled selected>Choose...</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <div *ngIf="adoptionForm.get('gender').invalid && adoptionForm.get('gender').touched" class="text-danger">
+            Gender is required
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPetType" class="form-label">Pet Type</label>
+          <select id="inputPetType" class="form-select" formControlName="petType">
+            <option value="" disabled selected>Choose...</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Bird">Bird</option>
+          </select>
+          <div *ngIf="adoptionForm.get('petType').invalid && adoptionForm.get('petType').touched" class="text-danger">
+            Pet Type is required
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputVaccinated" class="form-label">Vaccinated</label>
+          <select id="inputVaccinated" class="form-select" formControlName="vaccinated">
+            <option value="" disabled selected>Choose...</option>
+            <option [value]="true">Yes</option>
+            <option [value]="false">No</option>
+          </select>
+          <div *ngIf="adoptionForm.get('vaccinated').invalid && adoptionForm.get('vaccinated').touched" class="text-danger">
+            Vaccinated status is required
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPrice" class="form-label">Price</label>
+          <input type="number" class="form-control" id="inputPrice" formControlName="price">
+          <div *ngIf="adoptionForm.get('price').invalid && adoptionForm.get('price').touched" class="text-danger">
+            Price is required
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="address">
+          <div *ngIf="adoptionForm.get('address').invalid && adoptionForm.get('address').touched" class="text-danger">
+            Address is required
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" formControlName="address2">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity" formControlName="city">
+          <div *ngIf="adoptionForm.get('city').invalid && adoptionForm.get('city').touched" class="text-danger">
+            City is required
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <select id="inputState" class="form-select" formControlName="state">
+            <option value="" disabled selected>Choose...</option>
+            <option *ngFor="let state of statesInIndia" [value]="state">{{state}}</option>
+          </select>
+          <div *ngIf="adoptionForm.get('state').invalid && adoptionForm.get('state').touched" class="text-danger">
+            State is required
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="number" class="form-control" id="inputZip" formControlName="zip">
+          <div *ngIf="adoptionForm.get('zip').invalid && adoptionForm.get('zip').touched" class="text-danger">
+            Zip code is required
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label for="inputDescription" class="form-label">Description</label>
+          <textarea type="text" class="form-control" id="inputDescription" formControlName="description"></textarea>
+        </div>
+        <div class="col-md-12">
+          <label for="inputImage" class="form-label">Images</label>
+          <input type="file" class="form-control" id="inputImage" (change)="onFileSelected($event, '0')">
+          <div *ngFor="let key of additionalInputs" class="mt-2">
+            <input type="file" class="form-control" [id]="'inputImage' + key" (change)="onFileSelected($event, key.toString())">
+          </div>
+          <button type="button" class="btn btn-primary mt-2" (click)="addInput()">Add Images</button>
+        </div>
+        <div class="col-12 d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

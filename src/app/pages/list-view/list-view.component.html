@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="container1">
+    <div class="text-cont">
+      <span *ngIf="isshow">What's new?</span>
+    <h4 *ngIf="isshow;else elsepart"Style="color:#F7DBA7;">{{title}}</h4>
+    <ng-template #elsepart>
+     <h4 style="color: black;">{{title}}</h4>
+    </ng-template>
+    </div>
+    <div class="button-cont">
+      <button>View more <i class="bi bi-arrow-right-short"></i></button>
+    </div>
+  </div>
+  <div class="product-list">
+    <div class="product-card" *ngFor="let pet of petData" (click)="navigateToDetails(pet)"> 
+      <img [src]="pet.petImages[0].bytes |imageurl" alt="">
+      <div class="product-detail">
+        <h5 class="petname">{{pet.petName}}</h5>
+        <span class="span1">Gene:</span> <span class="span2">{{pet.petGender}}</span>
+        <span><i class="bi bi-dot"></i></span>   <span class="span1">Age:</span> <span class="span2">{{pet.petAge}} months</span>
+        <h6>{{pet.price}} Rs</h6>
+      </div>
+    </div>
+  </div>
+</div>
