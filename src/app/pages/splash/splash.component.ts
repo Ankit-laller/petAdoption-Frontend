@@ -11,10 +11,15 @@ export class SplashComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
+    this.skipsplash()
   }
 
   skipsplash(){
-    this.router.navigateByUrl("/home")
+    if(localStorage.getItem("currentUser")!=null){
+      this.router.navigateByUrl("/home")
+    }else{
+      this.router.navigateByUrl("/login")
+    }
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PetService } from 'src/app/services/pet.service';
+import { PetType } from 'src/shared/AppEnum';
 
 @Component({
   selector: 'app-category',
@@ -16,16 +17,16 @@ export class CategoryComponent implements OnInit {
   data:any
 
   ngOnInit() {
-   this.getcatData()
-   this.getDogData()
-   this.getBirdData()
+   this.getPetData()
   }
   iteration=[1,2,3,4]
   
-   getcatData(){
-       this.petService.getPetDataByPetType("Cat").subscribe(r=>{
+   getPetData(){
+       this.petService.getPetData().subscribe(response=>{
       // debugger
-      this.catsData=r
+      this.catsData = response.result.filter(x=>x.petType.toLowerCase()==PetType.Cat.toString().toLowerCase());
+      this.dogsData = response.result.filter(x=>x.petType.toLowerCase()==PetType.Dog.toString().toLowerCase());
+      this.birdsData = response.result.filter(x=>x.petType.toLowerCase()==PetType.Bird.toString().toLowerCase());
     })
   }
   getDogData(){

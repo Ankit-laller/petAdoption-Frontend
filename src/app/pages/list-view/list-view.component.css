@@ -1,4 +1,4 @@
-.main {
+/* .main {
     padding: 5px 5%;
 }
 
@@ -72,7 +72,6 @@
 
 .product-card:hover{
     cursor: pointer;    
-    /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
    background-color: #cad9de;
 }
 
@@ -128,4 +127,4 @@
     text-align: left;
     color: #00171F;
 
-}
+} */

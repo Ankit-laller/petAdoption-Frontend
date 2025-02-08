@@ -22,15 +22,15 @@ export class LoginComponent implements OnInit {
   navigate(){
     if(this.form.valid){
       this.authService.login(this.form.value).subscribe(r=>{
-        debugger
-        if(r.success){
-          localStorage.setItem("token",r.token)
-          localStorage.setItem("currentUser",r.user.id)
-          localStorage.setItem("currentUserName",r.user.name)
+        if(r?.success){
+           localStorage.setItem("token",r.result.token)
+          // localStorage.setItem("currentUser",r.user.Id)
+          // localStorage.setItem("currentUserName",r.user.name)
+          // localStorage.setItem("currentUser",r.user.id)
           this.router.navigateByUrl("/home")
           
         }else{
-          alert(r.message)
+          alert(r?.message)
         }
       })
     }

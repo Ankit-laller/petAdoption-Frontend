@@ -14,21 +14,22 @@ import { VideoPlayerComponent } from './pages/video-player/video-player.componen
 import { NotificationModalComponent } from './pages/notification-modal/notification-modal.component';
 import { AdoptionComponent } from './pages/adoption/adoption.component';
 import { AdoptionFormComponent } from './pages/adoption-form/adoption-form.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   
   {path:"login",component:LoginComponent},
   {path:"register", component:RegisterComponent},
-  {path:"productdetail", component:ProductDetailComponent},
+  
   {path:"splash", component:SplashComponent},
   {path:"notification", component:NotificationModalComponent},
   {path:"", redirectTo:"splash",pathMatch:'full' },
   {path:"", component:LayoutComponent, children:[
-    {path:"home", component:HomeComponent},
-    {path:"petdetail", component:ProductDetailComponent},
-    {path:"category",component:CategoryComponent},
-    {path:"adoption", component:AdoptionComponent},
-    {path:"adoption-form",component:AdoptionFormComponent}
+    { path: "home", component: HomeComponent, canActivate: [AuthGuard] }, 
+      { path: "petdetail", component: ProductDetailComponent, canActivate: [AuthGuard] },
+      { path: "category", component: CategoryComponent, canActivate: [AuthGuard] },
+      { path: "adoption", component: AdoptionComponent, canActivate: [AuthGuard] },
+      { path: "adoption-form", component: AdoptionFormComponent, canActivate: [AuthGuard] }
   ]}
 ];
 

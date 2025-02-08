@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, MaxLengthValidator, Validators } from '@angular/forms';
 import { PetService } from 'src/app/services/pet.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-adoption-form',
@@ -58,6 +59,7 @@ inputFiles: { [key: string]: File } = {};
       gender: ['', Validators.required],
       petType: ['', Validators.required],
       vaccinated: [Boolean, Validators.required],
+      petColor:['',Validators.required],
       price: ['', Validators.required],
       address: ['', Validators.required],
       address2: [''],
@@ -87,7 +89,9 @@ inputFiles: { [key: string]: File } = {};
   }
 
   onSubmit() {
-    // debugger
+    debugger
+    const userId=localStorage.getItem("currentUser")!==null?localStorage.getItem("currentUser"):null;
+    console.log("userId:-",userId)
     if (this.adoptionForm.valid) {
       const formData = new FormData();
       formData.append('petName', this.adoptionForm.get('petName').value);
@@ -96,12 +100,13 @@ inputFiles: { [key: string]: File } = {};
       formData.append('petType', this.adoptionForm.get('petType').value);
       formData.append('vaccinated', this.adoptionForm.get('vaccinated').value);
       formData.append('price', this.adoptionForm.get('price').value);
+      formData.append("petColor", this.adoptionForm.get('petColor').value);
       const address = this.adoptionForm.get('address').value+","+
       this.adoptionForm.get('address2').value+","+this.adoptionForm.get('city').value+","+
       this.adoptionForm.get('state').value+","+this.adoptionForm.get('zip').value;
       formData.append("address",address)
       formData.append("description",this.adoptionForm.get("description").value);
-      formData.append("userId",localStorage.getItem("currentUser"))
+      userId?formData.append("userId",userId):null
 
       const imagesControl:any = this.adoptionForm.get('images').value;
         imagesControl.forEach((image: File, index: number) => {
@@ -110,26 +115,53 @@ inputFiles: { [key: string]: File } = {};
           }
         });
       
-      imagesControl.forEach((image: File, index: number) => {
-        if (image) {
-          formData.append('images', image, `image${index + 1}`);
-        }
-      });
+      // imagesControl.forEach((image: File, index: number) => {
+      //   if (image) {
+      //     formData.append('images', image, `image${index + 1}`);
+      //   }
+      // });
         console.log(this.adoptionForm.value)
         console.log(this.adoptionForm.get("images"))
         console.log(formData.get("images"))
         console.log(formData.get("petName"))
 
+        Swal.fire({
+          title: "Do you want to upload the data?",
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: "Yes",
+          denyButtonText: `No`
+        }).then((result) => {
+          
+          if (result.isConfirmed) {
+            this.petService.uploadPetData(formData).subscribe(
+              (response) => {
+                console.log(result);  // Log the result to see the full structure
+                if (response.success && response.result) {
+                  console.log("Pet data saved successfully!");
+                } else {
+                  console.log("Failed to save pet data:", result ? response.message : 'No message');
+                }
+              },
+              (error) => {
+                console.error("Error occurred:", error);
+              }
+            );
+            
+          } else if (result.isDenied) {
+            Swal.fire("Changes are not saved", "", "info");
+          }
+        });
+            
       
-      this.petService.uploadPetData(formData).subscribe(
-        r=>{
-          console.log('Form submitted successfully:', r);
-          this.adoptionForm.reset();
-        }
-        
-      )
+      
     } else {
-      console.log('Form is invalid. Please check all fields.');
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Enter data to all fields",
+        // footer: '<a href="#">Why do I have this issue?</a>'
+      });
     }
   }
 

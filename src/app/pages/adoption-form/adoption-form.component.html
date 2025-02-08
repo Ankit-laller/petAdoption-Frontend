@@ -58,11 +58,18 @@
             Price is required
           </div>
         </div>
-        <div class="col-12">
+        <div class="col-6">
           <label for="inputAddress" class="form-label">Address</label>
           <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" formControlName="address">
           <div *ngIf="adoptionForm.get('address').invalid && adoptionForm.get('address').touched" class="text-danger">
             Address is required
+          </div>
+        </div>
+        <div class="col-6">
+          <label for="inputpetColor" class="form-label">Pet Color</label>
+          <input type="text" class="form-control" id="inputpetColor" placeholder="white" formControlName="petColor">
+          <div *ngIf="adoptionForm.get('petColor').invalid && adoptionForm.get('petColor').touched" class="text-danger">
+            pet color is required
           </div>
         </div>
         <div class="col-12">
@@ -88,7 +95,7 @@
         </div>
         <div class="col-md-2">
           <label for="inputZip" class="form-label">Zip</label>
-          <input type="number" class="form-control" id="inputZip" formControlName="zip">
+          <input type="number" class="form-control" id="inputZip" formControlName="zip" [maxlength]="6">
           <div *ngIf="adoptionForm.get('zip').invalid && adoptionForm.get('zip').touched" class="text-danger">
             Zip code is required
           </div>

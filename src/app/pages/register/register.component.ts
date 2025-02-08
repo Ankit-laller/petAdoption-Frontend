@@ -14,15 +14,19 @@ export class RegisterComponent implements OnInit {
  user:FormGroup= new FormGroup({
   email:new FormControl("",Validators.required,),
   name:new FormControl("", Validators.required),
-  mobileNumber : new FormControl("", Validators.required),
+  phoneNo : new FormControl("", Validators.required),
   city :new FormControl("", Validators.required),
   password:new FormControl("",Validators.required,),
  })
   ngOnInit() {
   } 
   navigate(){
+    debugger
+    console.log(this.user.value)
     if(this.user.valid){
+      debugger
       this.authService.register(this.user.value).subscribe(r=>{
+        debugger
         if(r.success){
           alert(r.message)
           this.router.navigateByUrl("/login")

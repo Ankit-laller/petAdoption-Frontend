@@ -21,6 +21,7 @@ export class ProductDetailComponent implements OnInit {
     // this.petData= history.state
     this.petservice.petData.subscribe(r=>{
       this.petData=r
+      console.log("1st", this.petData)
     })
     console.log(this.petData)
     // this.image=this.petData.petImages[0].imageurl
@@ -56,26 +57,9 @@ export class ProductDetailComponent implements OnInit {
 
   getPetDataByPetType(){
     (  this.petservice.getPetDataByPetType(this.petData.petType)).subscribe(r=>{
-      // debugger
+       debugger
       this.data= r;
-      this.particularPetTypeData = this.data.map(pet => ({
-      petId: pet.petId,
-      petName: pet.petName,
-      description: pet.description,
-      petAge: pet.petAge,
-      isAdopted: pet.isAdopted,
-      vaccinated: pet.vaccinated,
-      petGender: pet.petGender,
-      petType: pet.petType,
-      userId: pet.userId,
-      petImages: pet.petImages.map(image => ({
-        id: image.id,
-        bytes: image.bytes,
-        imageurl: this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${image.bytes}`),
-        description: image.description,
-        fileExtension: image.fileExtension
-      }))
-    }));
+      this.particularPetTypeData = this.data.filter(p=>p.petId!=this.petData.petId);
     })
   }
 
@@ -86,15 +70,18 @@ export class ProductDetailComponent implements OnInit {
       return
     }
     const requestData = {
-      "senderId": localStorage.getItem("currentUser"),
-      "senderName": localStorage.getItem("currentUserName"),
+      // "senderId": localStorage.getItem("currentUser")??"3",
+      // "senderName": localStorage.getItem("currentUserName") ??"Ankit",
       "ownerId": this.petData.userId,
       "petId": this.petData.petId,
       petName:this.petData.petName
     }
     this.petservice.sendAdoptionRequest(requestData).subscribe(r=>{
-      // debugger
+       debugger
       if(r.success){
+        alert(r.result);
+      }else{
+        alert(r.message)
       }
     })
   }

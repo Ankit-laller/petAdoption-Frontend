@@ -25,9 +25,9 @@ export class AdoptionComponent implements OnInit {
 
   getAdoptionRequest(){
     const currentUser= localStorage.getItem("currentUser")
-     this.petService.getAdoptionRequest(currentUser).subscribe((r)=>{
+     this.petService.getAdoptionRequest().subscribe((r)=>{
       // debugger
-       this.adoptionRequests=r
+       this.adoptionRequests=r.result
        console.log(this.adoptionRequests)
      })
    }

@@ -32,29 +32,8 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl("category")
   }
   getPetData(){
-    this.petservice.getPetData().subscribe(r=>{
-      // debugger
-      this.data= r;
-      this.petData = this.data.map(pet => ({
-      petId: pet.petId,
-      petName: pet.petName,
-      description: pet.description,
-      petAge: pet.petAge,
-      price:pet.price,
-      address:pet.address,
-      isAdopted: pet.isAdopted,
-      vaccinated: pet.vaccinated,
-      petGender: pet.petGender,
-      petType: pet.petType,
-      userId: pet.userId,
-      petImages: pet.petImages.map(image => ({
-        id: image.id,
-        bytes: image.bytes,
-        imageurl: this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${image.bytes}`),
-        description: image.description,
-        fileExtension: image.fileExtension
-      }))
-    }));
+    this.petservice.getPetData().subscribe(response=>{
+      this.petData = response.result;
     console.log(this.petData)
     })
   }

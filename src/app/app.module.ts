@@ -22,6 +22,7 @@ import { NotificationModalComponent } from './pages/notification-modal/notificat
 import { AdoptionComponent } from './pages/adoption/adoption.component';
 import { AdoptionFormComponent } from './pages/adoption-form/adoption-form.component';
 import { ImageurlSanitizerPipe } from './pipes/imageurl-sanitizer.pipe';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [	
@@ -49,6 +50,7 @@ import { ImageurlSanitizerPipe } from './pipes/imageurl-sanitizer.pipe';
   InputTextModule,
   PasswordModule,
   NoopAnimationsModule,
+  LazyLoadImageModule
   
   
 ],

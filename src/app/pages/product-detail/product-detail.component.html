@@ -8,7 +8,7 @@
       </div>
       <div class="carousel-inner">
         <div *ngFor="let image of petData.petImages; let first=first;" class="carousel-item" [class.active]="first">
-          <img [src]="image.imageurl" class="d-block w-100" alt="..." style="object-fit: cover;height: 410px;">
+          <img [src]="petData.petImages[0].imageUrl" class="d-block w-100" alt="..." style="object-fit: cover;height: 410px;">
         </div>
         
       </div>
