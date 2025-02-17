@@ -1,4 +1,4 @@
-.navHeader {
+/* .navHeader {
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -12,13 +12,6 @@
     flex-direction: row;
     align-items: center;
 }
-/* .log{
-    width: 90px;
-    height: 32px;
-    background-image: url("./../../../assets/logo.png");
-    background-size: cover;
-    background-position: center;
-} */
 
 .navitems {
     display: flex;
@@ -87,4 +80,4 @@
 }
 .modal-body {
     padding: 0%;
-}
+} */

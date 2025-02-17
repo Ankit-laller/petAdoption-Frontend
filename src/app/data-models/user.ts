@@ -11,7 +11,11 @@ export interface UserLoginResponse{
     token:string,
     user:User
 }
-
+export interface BaseApiReponse{
+  success:boolean,
+  message:string,
+  result:any
+}
 export interface ApiResponse{
     success:boolean,
     message:string,

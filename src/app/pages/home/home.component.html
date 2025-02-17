@@ -1,4 +1,4 @@
-<div class="main">
+<!-- <div class="main">
   <div class="text">
     <div class="title">
       <h1>One More Friend</h1>
@@ -14,4 +14,31 @@
     
   </div>
 </div>
-<app-list-view [title]="title" [isshow]="true" [petData]="petData"> </app-list-view>
+<app-list-view [title]="title" [isshow]="true" [petData]="petData"> </app-list-view> -->
+
+<div class="container-fluid p-4 rounded-bottom" style="background: linear-gradient(102.87deg, #FCEED5 6.43%, #FCEED5 78.33%, #FFE7BA 104.24%);">
+  <div class="row">
+    <div class="col-12 col-lg-6 d-flex flex-column justify-content-center">
+      <div class="title">
+        <h1 class="fw-bold fs-4 mb-2 text-dark">One More Friend</h1>
+        <h1 class="fw-bold fs-4 mb-4 text-dark">Thousands More Fun!</h1>
+        <span class="fs-6 text-muted">Having a pet means you have more joy, a new friend, a happy person who will always be with you to have fun. We have 200+ different pets that can meet your needs!</span>
+      </div>
+      <div class="buttons mt-4">
+        <button class="btn btn-outline-dark me-3">View Intro <i class="bi bi-play-circle"></i></button>
+        <button class="btn btn-primary" (click)="goToExplore()">Explore Now</button>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 d-flex align-items-stretch">
+      <div class="image w-100" 
+           style="background-image: url('./../../../assets/primary-image.png'); 
+                  background-size: cover; 
+                  background-position: center;
+                  min-height: 100%;
+                  height: 100%;">
+      </div>
+    </div>    
+  </div>
+</div>
+
+<app-list-view [title]="title" [isshow]="true" [petData]="petData"></app-list-view>

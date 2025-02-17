@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Appconst } from 'src/shared/AppConst';
-import { AdoptionRequestResponse, ApiResponse, PetApiResponse } from '../data-models/user';
+import { AdoptionRequestResponse, ApiResponse, BaseApiReponse, PetApiResponse } from '../data-models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,11 @@ headerDict = new HttpHeaders({
   getPetData(){
     return this.http.get<PetApiResponse>(Appconst.BaseApiUrl+"Pet/GetAllPets",this.options)
   }
-  getPetDataById(id){
-    return this.http.get("https://localhost:7025/api/Pet/"+id,this.options)
+  getPetDataById(petId){
+    let param = new HttpParams()
+    param =param.set("petId",petId)
+    const options ={headers:this.headerDict,params:param}
+    return this.http.get<PetApiResponse>(this.baseUrl+"Pet/GetPetDataByPetId",options)
   }
   getAdoptionRequest(){
     return this.http.get<AdoptionRequestResponse>(this.baseUrl+"Pet/getAdoptionRequests/",this.options)
@@ -37,11 +40,17 @@ headerDict = new HttpHeaders({
   sendAdoptionRequest(requestData){
     return this.http.post<{success:boolean,message:string, result:string}>(this.baseUrl+"Pet/sendAdoptionRequest/",requestData,this.options)
   }
-  acceptAdoptionRequest(id){
-    return this.http.get<{success:boolean,message:string, result:string}>(this.baseUrl+"Pet/acceptAdoptionRequest/"+id,this.options)
+  acceptAdoptionRequest(petId){
+    let param = new HttpParams()
+    param =param.set("petId",petId)
+    const options ={headers:this.headerDict,params:param}
+    return this.http.get<BaseApiReponse>(this.baseUrl+"Pet/acceptAdoptionRequest",options)
   }
-  rejectAdoptionRequest(id){
-    return this.http.delete<{success:boolean,message:string, result:string}>(this.baseUrl+"Pet/deleteadoptionrequest/"+id,this.options)
+  rejectAdoptionRequest(petId){
+    let param = new HttpParams()
+    param =param.set("petId",petId)
+    const options ={headers:this.headerDict,params:param}
+    return this.http.delete<BaseApiReponse>(this.baseUrl+"Pet/deleteadoptionrequest/",options)
   }
    getPetDataByPetType(petType){
     let param = new HttpParams()

@@ -1,16 +1,18 @@
-<div class="main d-flex justify-content-center align-items-center min-vh-100">
-  <div class="card p-4" style="max-width: 100%; width: 100%; max-width: 400px;">
-    <form [formGroup]="form" class="row needs-validation">
+<!-- Main container with background and full height -->
+<div class="d-flex justify-content-center align-items-center min-vh-100" style="background: linear-gradient(102.87deg, #FCEED5 6.43%, #FCEED5 78.33%, #FFE7BA 104.24%);">
+  <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%;">
+    <form [formGroup]="form" class="row needs-validation" novalidate>
+      
       <!-- Responsive Header (Welcome text) -->
-      <h2 class="d-flex justify-content-center mb-3 fs-responsive">Welcome</h2>
-      <span class="d-flex justify-content-center mb-3 fs-responsive">Login into your account</span>
+      <h2 class="text-center mb-3 fs-2 fw-bold">Welcome</h2>
+      <span class="text-center mb-3 fs-5 text-muted">Login into your account</span>
 
       <!-- Email input -->
       <div class="mb-3">
         <label for="email-input" class="form-label">Email address</label>
         <input type="email" class="form-control" id="email-input" placeholder="name@example.com" required formControlName="email">
         <div class="invalid-feedback">
-          Please enter email.
+          Please enter a valid email.
         </div>
       </div>
 
@@ -19,17 +21,19 @@
         <label for="password-input" class="form-label">Password</label>
         <input type="password" class="form-control" id="password-input" required formControlName="password">
         <div class="invalid-feedback">
-          Please enter password.
+          Please enter your password.
         </div>
       </div>
 
       <!-- Login button -->
-      <div class="d-flex justify-content-center mb-3">
-        <button class="btn btn-primary w-100" type="submit" (click)="navigate()">Login</button>
+      <div class="d-grid">
+        <button class="btn btn-primary" type="submit" (click)="navigate()">Login</button>
       </div>
 
       <!-- Register link -->
-      <a class="d-flex justify-content-center mt-2" href="register">Don't have an account?</a>
+      <div class="text-center mt-3">
+        <a class="text-decoration-none" routerLink="register" (click)="navigateToRegister()">Don't have an account?</a>
+      </div>
     </form>
   </div>
 </div>

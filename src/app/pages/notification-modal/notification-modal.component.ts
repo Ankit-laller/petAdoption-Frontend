@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class NotificationModalComponent implements OnInit {
 
   @Input() adoptionrequests
+ 
   constructor(private router:Router) { }
 
   ngOnInit() {

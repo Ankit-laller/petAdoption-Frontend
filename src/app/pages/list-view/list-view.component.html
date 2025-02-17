@@ -26,40 +26,44 @@
     </div>
   </div>
 </div> -->
+<div class="container-fluid">
+  <div class="card m-4 p-3">
+    <!-- Title & Button Section -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start">
+      <div class="text-cont mb-3 mb-md-0">
+        <span *ngIf="isshow" class="fw-medium fs-6">What's new?</span>
+        <h4 *ngIf="isshow; else elsepart" class="text-warning fs-2 fw-bold mb-0">{{title}}</h4>
+        <ng-template #elsepart>
+          <h4 class="text-dark fs-2 fw-bold mb-0">{{title}}</h4>
+        </ng-template>
+      </div>
+      <div>
+        <button class="btn btn-outline-dark rounded-5 px-3 py-2">
+          View more <i class="bi bi-arrow-right-short"></i>
+        </button>
+      </div>
+    </div>
 
-<div class="card m-4 p-3">
-  <div class="d-flex justify-content-between">
-    <div class="text-cont">
-      <span *ngIf="isshow" class="fw-medium fs-6">What's new?</span>
-      <h4 *ngIf="isshow; else elsepart" class="text-warning fs-2 fw-bold mb-0">{{title}}</h4>
-      <ng-template #elsepart>
-        <h4 class="text-dark fs-2 fw-bold mb-0">{{title}}</h4>
-      </ng-template>
-    </div>
-    <div class="d-flex align-items-center">
-      <button class="btn btn-outline-dark rounded-5 px-3 py-2">
-        View more <i class="bi bi-arrow-right-short"></i>
-      </button>
-    </div>
-  </div>
-  <div class="row g-4">
-    <div class="col-12 col-md-4" *ngFor="let pet of petData" 
-      (click)="navigateToDetails(pet)">
-      <div class="card shadow-sm h-100">
-        <img [defaultImage]='imageurl' [lazyLoad]="pet?.petImages" 
-        [errorImage]="imageurl" 
-        [alt]="imageurl" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">{{pet.petName}}</h5>
-          <p class="card-text">
-            <span class="fw-semibold">Gene:</span> <span>{{pet.petGender}}</span>
-          </p>
-          <p class="card-text">
-            <span class="fw-semibold">Age:</span> <span>{{pet.petAge}} months</span>
-          </p>
-          <h6 class="text-dark">{{pet.price}} Rs</h6>
+    <!-- Pet Cards Grid -->
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let pet of petData" (click)="navigateToDetails(pet)">
+        <div class="card shadow-sm h-100">
+          <img [defaultImage]='imageurl' [lazyLoad]="pet?.petImages" 
+          [errorImage]="imageurl" 
+          [alt]="pet.petName" class="card-img-top img-fluid" style="aspect-ratio: 4/3; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">{{pet.petName | titlecase}}</h5>
+            <p class="card-text mb-0">
+              <span class="fw-semibold">Gene : </span> <span>{{pet.petGender | titlecase}}</span>
+            </p>
+            <p class="card-text mb-0">
+              <span class="fw-semibold">Age : </span> <span>{{pet.petAge}} Months</span>
+            </p>
+            <span class="fw-semibold">Price : </span> <span>{{pet.price | currency :'INR'}}</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+

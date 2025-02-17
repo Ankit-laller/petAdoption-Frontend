@@ -34,6 +34,7 @@ export class ListViewComponent implements OnInit, OnChanges  {
   navigateToDetails(pet){
     this.petService.setPetData(pet)
     this.router.navigateByUrl("petdetail",{ state:pet});
+    
   }
 
 }

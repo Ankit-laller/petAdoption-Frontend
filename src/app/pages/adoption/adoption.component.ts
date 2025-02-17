@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AuthenticationService } from 'src/app/authentication.service';
+import { LoginResult } from 'src/app/data-models/user';
 import { PetService } from 'src/app/services/pet.service';
 
 @Component({
@@ -36,19 +37,19 @@ export class AdoptionComponent implements OnInit {
     this.requestId= requestId
     this.showDetails=true
     this.petService.getPetDataById(petId).subscribe((r)=>{
-      // debugger
-       this.petData = r
+       
+       this.petData = r.result;
 
     })
     this.authService.getUserId(userId).subscribe(r=>{
       // debugger
-      this.userData=r
+      this.userData=r.result;
     })
    }
    acceptAdoptionRequest(){
     this.petService.acceptAdoptionRequest(this.requestId).subscribe(r=>{
       if(r.success){
-        alert("request accepted")
+        alert(r.result)
         this.showDetails=false
         this.getAdoptionRequest()
 
@@ -58,7 +59,7 @@ export class AdoptionComponent implements OnInit {
    rejectAdoptionRequest(){
     this.petService.rejectAdoptionRequest(this.requestId).subscribe(r=>{
       if(r.success){
-        alert("Request Rejected")
+        alert(r.result)
         this.showDetails=false
         this.getAdoptionRequest()
 

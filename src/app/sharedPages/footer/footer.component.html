@@ -1,21 +1,4 @@
-<!-- <div class="container-fluid footer">
-  <div class="row">
-      <div class="col-lg-4 mt-3 mb-3">
-          <h1>Pet Adoption</h1>
-      </div>
-      <div class="col-lg-4 mt-3 mb-3">
-          <a routerLink="">Home</a>
-          <a routerLink="about">About</a>
-          <a routerLink="explore">Explore</a>
-      </div>
-      <div class="col-lg-2 mt-3 mb-3">
-          <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
-          <a href="#" target="_blank"><i class="bi bi-whatsapp"></i></a>
-          <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
-          <a href="#" target="_blank"><i class="bi bi-youtube"></i></a>
-      </div>
-  </div>
-</div> -->
+<!-- 
 <div class="footer card col-md-12 d-flex justify-content-center align-items-center">
     <div class="footer-container col-md-10 p-5 mt-3">
         <div class="email-container card d-flex col-md-10 flex-row justify-content-between align-items-center">
@@ -28,7 +11,6 @@
               </div>
           </div>
         <div class="link-container col-md-12 d-flex flex-row justify-content-between">
-            <!-- <div class="cont1 "> -->
                 <ul class="navitems d-flex flex-row justify-content-between col-md-4">
                     <li class="nav-item">
                       <a class="nav-link active" aria-current="page" routerLink="" routerLinkActive="active-link"
@@ -44,7 +26,6 @@
                       <a class="nav-link" routerLink="contact" routerLinkActive="active-link">Contact</a>
                     </li>
                   </ul>
-            <!-- </div> -->
             <div class="con2 col-md-4 d-flex justify-content-between">
                 <i class="bi bi-instagram"></i>
                 <i class="bi bi-facebook"></i>
@@ -66,4 +47,67 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<footer class="footer container-fluid py-5" style="background: linear-gradient(102.87deg, #FCEED5 6.43%, #FCEED5 78.33%, #FFE7BA 104.24%);">
+  <div class="container">
+   <!-- Email Subscription Section -->
+<div class="row justify-content-center mb-4">
+  <div class="col-lg-10">
+    <div class="email-container d-flex flex-column flex-md-row align-items-center justify-content-between p-4 rounded" style="background: #003459;">
+      <h5 class="mb-3 mb-md-0 text-white">Register now to stay updated on our programs</h5>
+      <div class="input-group email-box p-2 rounded border shadow-sm" style="background-color: white;">
+        <input type="email" class="form-control border-0" placeholder="Enter your email" required>
+        <button class="btn btn-primary">Subscribe</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+    <!-- Footer Links & Social Media -->
+    <div class="row justify-content-between text-center text-md-start">
+      <div class="col-md-4 mb-3 mb-md-0">
+        <ul class="nav d-flex flex-column flex-md-row justify-content-center justify-content-md-start gap-3">
+          <li class="nav-item">
+            <a class="nav-link active text-dark fw-bold" routerLink="" routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{exact:true}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="category" routerLinkActive="active-link">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="about" routerLinkActive="active-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="contact" routerLinkActive="active-link">Contact</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="col-md-4 d-flex justify-content-center gap-3">
+        <i class="bi bi-instagram fs-4"></i>
+        <i class="bi bi-facebook fs-4"></i>
+        <i class="bi bi-twitter fs-4"></i>
+        <i class="bi bi-youtube fs-4"></i>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="my-4">
+
+    <!-- Bottom Footer Section -->
+    <div class="row text-center text-md-start">
+      <div class="col-md-4 mb-3 mb-md-0">
+        <span>© 2022 Monito. All rights reserved.</span>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center">
+        <img src="./../../../assets/logo.png" alt="Logo" height="40">
+      </div>
+      <div class="col-md-4 text-md-end">
+        <span class="me-3">Terms of Service</span>
+        <span>Privacy Policy</span>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,48 +1,70 @@
-<div class="main d-flex justify-content-center align-items-center min-vh-100" style="background: linear-gradient(102.87deg, #FCEED5 6.43%, #FCEED5 78.33%, #FFE7BA 104.24%);">
-  <div class="card p-4" style="max-width: 100%; width: 100%; max-width: 500px;">
-    <form [formGroup]="user" class="row px-md-5 needs-validation" (submit)="navigate()">
-      <h2 class="d-flex justify-content-center mb-3 fs-responsive">Welcome</h2>
-      <span class="d-flex justify-content-center mb-3 fs-responsive">Register your account</span>
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100" 
+  style="background: linear-gradient(102.87deg, #FCEED5 6.43%, #FCEED5 78.33%, #FFE7BA 104.24%);">
+  
+  <div class="row w-100 justify-content-center">
+    
+    <!-- Form Column -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card p-4 shadow-lg">
+        <form [formGroup]="user" class="needs-validation" (submit)="navigate()" novalidate>
+          
+          <!-- Header -->
+          <h2 class="text-center mb-3 fs-responsive">Welcome</h2>
+          <span class="text-center mb-3 fs-responsive text-muted">Register your account</span>
 
-      <div class="mb-3">
-        <label for="name-input" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name-input" placeholder="name" required formControlName="name">
-        <div class="invalid-feedback">Please enter name</div>
+          <!-- Name -->
+          <div class="mb-3">
+            <label for="name-input" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name-input" placeholder="Enter name" required formControlName="name">
+            <div class="invalid-feedback">Please enter your name.</div>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email-input" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email-input" placeholder="name@example.com" required formControlName="email">
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+
+          <!-- Mobile Number -->
+          <div class="mb-3">
+            <label for="mobile-input" class="form-label">Mobile number</label>
+            <input type="text" class="form-control" id="mobile-input" required formControlName="phoneNo">
+            <div class="invalid-feedback">Please enter your mobile number.</div>
+          </div>
+
+          <!-- City -->
+          <div class="mb-3">
+            <label for="city-input" class="form-label">City</label>
+            <input type="text" class="form-control" id="city-input" required formControlName="city">
+            <div class="invalid-feedback">Please enter your city.</div>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-4">
+            <label for="password-input" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password-input" required formControlName="password">
+            <div class="invalid-feedback">Please enter a password.</div>
+          </div>
+
+          <!-- Register Button -->
+          <div class="d-grid mb-3">
+            <button class="btn btn-primary" type="submit">Register</button>
+          </div>
+
+          <!-- Login Link -->
+          <div class="text-center">
+            <a class="text-decoration-none" href="login" routerLinkActive="active-link">Already have an account?</a>
+          </div>
+
+        </form>
       </div>
+    </div>
 
-      <div class="mb-3">
-        <label for="email-input" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email-input" placeholder="name@example.com" required formControlName="email">
-        <div class="invalid-feedback">Please enter email</div>
-      </div>
+    <!-- Image Column (Only on md screens and above) -->
+    <div class="col-md-6 d-none d-md-flex justify-content-center align-items-center">
+      <img class="img-fluid rounded" src="./../../../assets/primary-image.png" alt="Image">
+    </div>
 
-      <div class="mb-3">
-        <label for="mobile-input" class="form-label">Mobile number</label>
-        <input type="text" class="form-control" id="mobile-input" required formControlName="phoneNo">
-        <div class="invalid-feedback">Please enter number</div>
-      </div>
-
-      <div class="mb-3">
-        <label for="city-input" class="form-label">City</label>
-        <input type="text" class="form-control" id="city-input" required formControlName="city">
-        <div class="invalid-feedback">Please enter city</div>
-      </div>
-
-      <div class="mb-4">
-        <label for="password-input" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password-input" aria-describedby="inputGroupPrepend" required formControlName="password">
-        <div class="invalid-feedback">Please enter password</div>
-      </div>
-
-      <div class="d-flex justify-content-center mb-3">
-        <button class="btn btn-primary w-100" type="submit" >Register</button>
-      </div>
-
-      <a class="d-flex justify-content-center mt-2 mb-2" href="login" routerLinkActive="active-link">Already have an account?</a>
-    </form>
-  </div>
-
-  <div class="image d-none d-md-block">
-    <img class="img-fluid rounded float-end" src="./../../../assets/primary-image.png" alt="Image">
   </div>
 </div>

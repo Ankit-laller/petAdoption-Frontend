@@ -55,14 +55,13 @@
       <h1>One More Friend <br> Thousands More Fun!</h1>
   </div>
   </div> -->
-
+<!-- 
   <div class="navHeader">
    <div class="container">
     <div class="log">
       <img src="./../../../assets/logo.png" alt="">
     </div>
     <div class="navitems">
-      <!-- <ul class="navitems"> -->
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="home" routerLinkActive="active-link"
           [routerLinkActiveOptions]="{exact:true}">Home</a>
@@ -73,10 +72,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="adoption-form" routerLinkActive="active-link">Form</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" routerLink="contact" routerLinkActive="active-link">Contact</a>
-        </li> -->
-      <!-- </ul> -->
+   
     </div>
    </div>
    <div class="navbutton">
@@ -100,10 +96,62 @@
             </div>
             <div class="modal-body ">
                 <ng-container #container></ng-container>
-                <!-- <button type="submit"  data-bs-dismiss="modal">Close</button> -->
-
+        
             </div>
         </div>
     </div>
- </div>
+ </div> -->
+ <nav class="navbar navbar-expand-lg px-4" style="background: linear-gradient(102.87deg, #FCEED5 6.43%, #FCEED5 78.33%, #FFE7BA 104.24%);">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="home">
+      <img src="./../../../assets/logo.png" alt="Logo" height="40">
+    </a>
 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active fw-bold text-dark" routerLink="home" routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{exact:true}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="category" routerLinkActive="active-link">Category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="adoption-form" routerLinkActive="active-link">Form</a>
+        </li>
+      </ul>
+
+      <!-- Fix: Align items to the right -->
+      <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-sm-end w-100 mt-3 mt-lg-0 gap-3">
+        <h5 class="mb-0">{{notification}}</h5>
+        <div class="position-relative" data-bs-toggle="modal" data-bs-target="#generalmodal" (click)="openModal()">
+          <i class="bi bi-bell fs-4 text-primary"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{requestsCount}}
+          </span>
+        </div>
+        <button class="btn btn-dark" (click)="logout()">Log out</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="generalmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" #modalTitle>Adoption Requests</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ng-container #container></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
